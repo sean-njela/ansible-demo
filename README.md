@@ -1,56 +1,41 @@
 <div align="center">
 
   <!-- Row of icons (optional, uncomment if needed) -->
-  <!--
+  
   <p>
-    <img src="https://logo.svgcdn.com/d/kubernetes-plain-wordmark.svg" alt="Kubernetes" height="95" />
-    &nbsp;&nbsp;
-    <img src="https://logo.svgcdn.com/d/prometheus-plain-wordmark.svg" alt="Prometheus" height="90" />
-    &nbsp;&nbsp;
-    <img src="https://logo.svgcdn.com/d/grafana-original-wordmark.svg" alt="Grafana" height="90" />
-    &nbsp;&nbsp;
-    <img src="https://logo.svgcdn.com/d/helm-original.svg" alt="Helm" height="90" />
+    <img src="https://logo.svgcdn.com/d/ansible-original-wordmark.svg" alt="Ansible" height="95" />
   </p>
-  -->
+ 
 
-  <h1>Project Title</h1>
+  <h1>Ansible Production Grade Setup</h1>
 
   <p>
-    Short description of the project. What it does, what problem it solves, or what it demonstrates.
+    Production-grade Ansible playbooks and roles for infrastructure automation and configuration management.
   </p>
 
   <p>
-    <a href="https://github.com/your-org/your-repo/graphs/contributors">
-      <img src="https://img.shields.io/github/contributors/your-org/your-repo" alt="contributors" />
+    <a href="https://github.com/sean-njela/ansible-demo/graphs/contributors">
+      <img src="https://img.shields.io/github/contributors/sean-njela/ansible-demo" alt="contributors" />
     </a>
     <a href="">
-      <img src="https://img.shields.io/github/last-commit/your-org/your-repo" alt="last update" />
+      <img src="https://img.shields.io/github/last-commit/sean-njela/ansible-demo" alt="last update" />
     </a>
-    <a href="https://github.com/your-org/your-repo/network/members">
-      <img src="https://img.shields.io/github/forks/your-org/your-repo" alt="forks" />
+    <a href="https://github.com/sean-njela/ansible-demo/network/members">
+      <img src="https://img.shields.io/github/forks/sean-njela/ansible-demo" alt="forks" />
     </a>
-    <a href="https://github.com/your-org/your-repo/stargazers">
-      <img src="https://img.shields.io/github/stars/your-org/your-repo" alt="stars" />
+    <a href="https://github.com/sean-njela/ansible-demo/stargazers">
+      <img src="https://img.shields.io/github/stars/sean-njela/ansible-demo" alt="stars" />
     </a>
-    <a href="https://github.com/your-org/your-repo/issues/">
-      <img src="https://img.shields.io/github/issues/your-org/your-repo" alt="open issues" />
+    <a href="https://github.com/sean-njela/ansible-demo/issues/">
+      <img src="https://img.shields.io/github/issues/sean-njela/ansible-demo" alt="open issues" />
     </a>
-    <a href="https://github.com/your-org/your-repo/blob/master/LICENSE">
-      <img src="https://img.shields.io/github/license/your-org/your-repo.svg" alt="license" />
+    <a href="https://github.com/sean-njela/ansible-demo/blob/master/LICENSE">
+      <img src="https://img.shields.io/github/license/sean-njela/ansible-demo.svg" alt="license" />
     </a>
   </p>
 </div>
 
 ## Screenshots
-
-<!-- <details>
-  <summary>Click to expand</summary>
-
-  This content is hidden until you click.  
-  You can put **Markdown** here too:
-  - Lists
-  - Code
-</details> -->
 
 <details>
   <summary>Click to expand</summary>
@@ -59,13 +44,6 @@
     <img src="assets/screenshot1.png" alt="screenshot1" width="800" />
     <img src="assets/screenshot2.png" alt="screenshot2" width="800" />
   </div>
-
-  <!-- Demo (optional, keep commented) -->
-  <!--
-  ## Demo
-  [▶ Watch a short demo](assets/demo-video.mp4)
-  [▶ Watch a short demo](assets/demo-video-small.mp4)
-  -->
 </details>
 
 ## Tech Stack
@@ -77,12 +55,6 @@
 ![gitflow](https://img.shields.io/badge/gitflow-1.12-green)
 ![uv](https://img.shields.io/badge/uv-0.8-green)
 ![precommit](https://img.shields.io/badge/precommit-4.3.0-green)
-
-## Features
-
-* Feature 1
-* Feature 2
-* Feature 3
 
 ## Prerequisites
 
@@ -97,8 +69,8 @@
 
 3. **Clone the repository**  
    ```bash
-   git clone https://github.com/sean-njela/your-repo.git
-   cd your-repo
+   git clone ...
+   cd ...
    ```
 
 4. **Start Devbox shell**
@@ -107,7 +79,7 @@
    devbox shell
    ```
 
-  > First run may take several minutes to install tools.
+  > First run may take several minutes to install tools, but subsequent runs spin up in seconds.
 
 ## Quick Start
 
@@ -115,6 +87,7 @@
 task setup
 task status   # check if everything is running
 task dev      # start development stack
+task info     # to list urls to visit
 task cleanup-dev
 ```
 
@@ -133,7 +106,7 @@ Then open: [http://127.0.0.1:8030/]()
 > [!IMPORTANT]
 > This project is designed for a simple, one-command setup. All necessary actions are orchestrated through `Taskfile.yml`.
 
-The `Taskfile.gitflow.yml` provides a structured Git workflow using Git Flow. This helps in managing features, releases, and hotfixes in a standardized way. To run these tasks just its the same as running any other task. Using gitflow is optional.
+The `Taskfile.gitflow.yml` provides a structured Git workflow using Git Flow. This helps in managing features, releases, and hotfixes in a standardized way. To run these tasks just its the same as running any other task. Using gitflow is optional. If you do not want the gitflow tasks, you can remove the `Taskfile.gitflow.yml` file and unlink it from the `Taskfile.yml` file (remove the `includes` section). If you cannot find the section use CTRL + F to search for `Taskfile.gitflow.yml`.
 
 To see all tasks:
 
@@ -141,22 +114,10 @@ To see all tasks:
 task --list-all
 ```
 
-If you do not want the gitflow tasks, you can remove the `Taskfile.gitflow.yml` file and unlink it from the `Taskfile.yml` file (remove the `includes` section). If you cannot find the section use CTRL + F to search for `Taskfile.gitflow.yml`.
-
-## NOTES
-
-> Important notes to remember whilst using the project
-
-## Roadmap
-
-* [x] Feature A
-* [ ] Feature B
-* [ ] Feature C
-
 ## Contributing
 
-<a href="https://github.com/sean-njela/your-repo/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=sean-njela/your-repo" />
+<a href="https://github.com/sean-njela/ansible-demo/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=sean-njela/ansible-demo" />
 </a>
 
 > Contributions welcome! Open an issue or submit a PR.
@@ -171,5 +132,3 @@ Distributed under the MIT License. See `LICENSE` for more info.
 * [Twitter/X](https://x.com/devopssean)
 * [seannjela@outlook.com](mailto:seannjela@outlook.com)
 * [About Me](docs/4-about/0-about.md)
-
-
