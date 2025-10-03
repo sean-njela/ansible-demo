@@ -1,0 +1,46 @@
+# SPDX-License-Identifier: MIT-0
+---
+# tasks file for base
+# Role: base
+# Purpose: install base packages, configure system MOTD, and deploy Nginx
+
+# Update package cache (only on Debian-family hosts)
+- name: Update package cache (Debian/Ubuntu)
+  ansible.builtin.apt:
+    update_cache: yes
+  when: ansible_facts['os_family'] == "Debian"
+
+# Install base packages (common across Linux distros)
+- name: Install base packages
+  ansible.builtin.package:
+    name:
+      - curl
+      - git
+      - vim
+    state: present
+
+# Deploy Message of the Day (motd)
+- name: Deploy MOTD file
+  ansible.builtin.copy:
+    src: motd.txt
+    dest: /etc/motd
+    owner: root
+    group: root
+    mode: '0644'
+
+# Deploy NGINX configuration template
+- name: Template out nginx.conf
+  ansible.builtin.template:
+    src: nginx.conf.j2
+    dest: /etc/nginx/nginx.conf
+    owner: root
+    group: root
+    mode: '0644'
+  notify: restart nginx
+
+# Ensure NGINX service is running
+- name: Ensure NGINX is running and enabled on boot
+  ansible.builtin.service:
+    name: nginx
+    state: started
+    enabled: true

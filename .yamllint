@@ -1,0 +1,29 @@
+---
+extends: default
+
+rules:
+  comments:
+    min-spaces-from-content: 1
+  comments-indentation: false
+  braces:
+    max-spaces-inside: 1
+  line-length:
+    max: 200
+    level: warning
+  octal-values:
+    forbid-explicit-octal: true
+    forbid-implicit-octal: true
+
+ignore: |
+  .trunk/
+  .venv/
+  ansible_galaxy/ansible_collections/
+  ansible_galaxy/ansible_roles/
+  group_vars/all/ansible_vault.yml
+  Taskfile*.yml
+  docs/
+  .github/
+  docker-compose.mkdocs.yml
+  Dockerfile
+  mkdocs.yml
+  roles/

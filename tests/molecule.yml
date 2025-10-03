@@ -1,0 +1,25 @@
+---
+# Molecule test config for base role
+
+dependency:
+  name: galaxy
+  options:
+    requirements: ../../requirements.yml   # Install deps from requirements.yml
+
+driver:
+  name: docker                             # Use Docker for test instances
+
+platforms:
+  - name: instance
+    image: geerlingguy/docker-ubuntu2004-ansible
+    privileged: true
+
+provisioner:
+  name: ansible
+  config_options:
+    defaults:
+      inventory: ../../inventory/hosts.ini # Use our INI inventory
+
+verifier:
+  name: testinfra                          # Use pytest + testinfra for assertions
+  directory: ../tests/                     # Point to tests directory

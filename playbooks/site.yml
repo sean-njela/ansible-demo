@@ -1,0 +1,7 @@
+---
+# Main entry point for all playbooks
+- name: Apply base role to all hosts
+  hosts: all             # Target all groups/hosts from inventory
+  gather_facts: true     # Collect facts (OS family, IPs, etc.)
+  roles:
+    - base               # Apply the base role

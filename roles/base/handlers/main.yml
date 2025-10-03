@@ -1,0 +1,8 @@
+# SPDX-License-Identifier: MIT-0
+---
+# handlers file for base
+# Handlers are triggered only when notified
+- name: Restart nginx
+  ansible.builtin.service:
+    name: nginx
+    state: restarted

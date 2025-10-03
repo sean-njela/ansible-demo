@@ -1,0 +1,13 @@
+---
+# Global variables applied to all hosts
+
+# Default environment type (can be overridden per group/host)
+app_env: dev
+
+# Default NGINX port for all hosts
+nginx_port: 80
+
+# Example secret stored with Vault encryption
+db_password: !vault |
+  $ANSIBLE_VAULT;1.1;AES256
+  6537646131653865613136623465666534326366393437626536333639353932

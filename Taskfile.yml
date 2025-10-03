@@ -1,3 +1,4 @@
+---
 # ─── Example Showing All Task Features ────────────────────────────────────────────────
 # setup:
 #   desc: "⚙️ Setup environment: install dependencies, generate config"
@@ -73,6 +74,7 @@ tasks:
     desc: "Setup environment: install dependencies, generate config etc."
     cmds:
       - pre-commit install
+      - ansible-galaxy install -r requirements.yml
 
 
 # ─── Environment Management ────────────────────────────────────────────────────
@@ -98,11 +100,11 @@ tasks:
     desc: "List current deployed versions"
     cmds:
       - uv run mike list
-  
+
   precommit:
     desc: "Run all precommit rules"
     cmds:
-      -  pre-commit run --all-files  
+      -  pre-commit run --all-files
 
 # ─── System Management ─────────────────────────────────────────────────────────
   ports:
@@ -203,4 +205,3 @@ tasks:
     generates:
 
       - "assets/demo-video-small.gif"
-
