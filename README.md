@@ -1,11 +1,11 @@
 <div align="center">
 
   <!-- Row of icons (optional, uncomment if needed) -->
-  
+
   <p>
     <img src="https://logo.svgcdn.com/d/ansible-original-wordmark.svg" alt="Ansible" height="95" />
   </p>
- 
+
 
   <h1>Ansible Production Grade Setup</h1>
 
@@ -40,7 +40,7 @@
 <details>
   <summary>Click to expand</summary>
   <!-- Example (uncomment if needed) -->
-  <div align="center"> 
+  <div align="center">
     <img src="assets/screenshot1.png" alt="screenshot1" width="800" />
     <img src="assets/screenshot2.png" alt="screenshot2" width="800" />
   </div>
@@ -59,15 +59,15 @@
 ## Prerequisites
 
 > [!IMPORTANT]
-> This project uses **Devbox** to provide a consistent development environment. 
+> This project uses **Devbox** to provide a consistent development environment.
 
-1. **Install Docker**  
-   [Docker installation guide](https://docs.docker.com/get-docker/)  
+1. **Install Docker**
+   [Docker installation guide](https://docs.docker.com/get-docker/)
 
-2. **Install Devbox**  
-   [Devbox installation guide](https://www.jetify.com/devbox/docs/installing_devbox/)  
+2. **Install Devbox**
+   [Devbox installation guide](https://www.jetify.com/devbox/docs/installing_devbox/)
 
-3. **Clone the repository**  
+3. **Clone the repository**
    ```bash
    git clone ...
    cd ...

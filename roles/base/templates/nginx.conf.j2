@@ -1,0 +1,27 @@
+# Jinja2 template for Nginx configuration
+
+user nginx;
+worker_processes auto;
+error_log /var/log/nginx/error.log;
+pid /run/nginx.pid;
+
+events {
+    worker_connections 1024;
+}
+
+http {
+    include       /etc/nginx/mime.types;
+    default_type  application/octet-stream;
+    sendfile        on;
+    keepalive_timeout 65;
+
+    server {
+        listen {{ base_nginx_port }} default_server;   # Dynamic variable
+        server_name {{ inventory_hostname }};     # Current host alias
+
+        location / {
+            root /usr/share/nginx/html;
+            index index.html;
+        }
+    }
+}

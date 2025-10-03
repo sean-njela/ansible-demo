@@ -1,0 +1,19 @@
+---
+# Dependencies from Ansible Galaxy
+
+collections:
+  # General modules (user, packages, files, etc.)
+  - name: community.general
+    version: ">=5.0.0"
+
+  # POSIX-related modules (firewalld, mount, sysctl, etc.)
+  - name: ansible.posix
+    version: ">=1.5.0"
+
+roles:
+  # Example external role (maintained by geerlingguy)
+  # Provides Git installation and configuration
+  - src: geerlingguy.git
+    version: 2.0.0
+
+# Run: ansible-galaxy install -r requirements.yml

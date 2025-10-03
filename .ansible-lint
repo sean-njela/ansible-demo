@@ -1,0 +1,22 @@
+---
+skip_list:
+  - fqcn
+  - name
+  - meta-incorrect
+  - no-free-form
+  - args
+  - literal-compare
+  - command-instead-of-module
+  - risky-file-permissions
+  - inline-env-var
+  - no-changed-when
+  - '106'  # Ignore role-name regex warning
+warn_list:
+  - '204'  # Warn about long lines
+exclude_paths:
+  - roles/geerlingguy.git/
+  - ansible_galaxy/
+  - .venv/
+  - .trunk/
+  - group_vars/all/ansible_vault.yml
+  - mkdocs.yml

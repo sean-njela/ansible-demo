@@ -423,3 +423,104 @@ FodyWeavers.xsd
 site/*
 
 .task/
+
+# Intentionally untracked files to ignore. See gitignore(5).
+
+.DS_Store
+*.bak
+*.new
+*~
+/.cache
+/.venv
+/ansible_galaxy/ansible_collections/
+/ansible_galaxy/ansible_roles/
+/bin/a
+/bin/ap
+/bin/aps
+/dist/
+
+.ansible-vault-secret
+
+# -------------------------
+# Ansible specific
+# -------------------------
+
+# Logs
+ansible.log
+*.retry
+
+# Vault password files (never commit secrets)
+.vault_pass.txt
+.vault_pass
+vault_password.txt
+
+# Local inventory (override files, do not version-control)
+inventory/*.yml.bak
+inventory/*.ini.bak
+inventory/host_vars/*
+inventory/group_vars/*_vault.yml  # Encrypted secret files can be ignored if local only
+
+# Collections and roles installed from Galaxy
+collections/
+roles/*/molecule/.molecule/
+roles/*/molecule/default/.molecule/
+
+# -------------------------
+# Python (Molecule/Testinfra)
+# -------------------------
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.egg-info/
+.eggs/
+.env
+.venv
+env/
+venv/
+
+# Virtualenv wrapper
+bin/
+lib/
+lib64/
+include/
+pyvenv.cfg
+
+# Pip
+pip-log.txt
+pip-delete-this-directory.txt
+
+# -------------------------
+# Molecule + Docker
+# -------------------------
+.molecule/
+.cache/
+coverage.xml
+.coverage
+htmlcov/
+.tox/
+*.log
+
+# Docker build artefacts
+.docker/
+.dockerignore
+*.tar
+*.pid
+*.sock
+
+# -------------------------
+# System/Editor junk
+# -------------------------
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+.idea/
+.vscode/
+.project
+.settings/
+*.iml
+
+./vscode
+.ansible/

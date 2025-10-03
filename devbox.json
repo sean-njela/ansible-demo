@@ -6,7 +6,10 @@
     "gitflow@1.12",
     "ffmpeg@7.1.1",
     "uv@0.8",
-    "pre-commit@4.3"
+    "pre-commit@4.3",
+    "ansible@2.19",
+    "ansible-lint@25.8",
+    "yamllint@1.37"
   ],
   "shell": {
     "init_hook": [

@@ -1,0 +1,57 @@
+---
+# Pre-commit configuration for Ansible project
+# Ensures Ansible YAML is checked by ansible-lint, while non-Ansible YAML is parsed by check-yaml.
+
+exclude: >
+  (?x)^(
+    docs/.*|
+    site/.*|
+    assets/.*|
+    .*\.mp4|
+    .*\.png|
+    .*\.jpg|
+    .*\.jpeg|
+    .*\.gif|
+    .*\.svg
+  )$
+
+repos:
+  # --- Hygiene hooks ---
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v6.0.0
+    hooks:
+      - id: check-yaml
+        # skip ansible files with custom tags
+        exclude: ^(inventory/|group_vars/|host_vars/|roles/|playbooks/).*
+      - id: check-json
+      - id: check-toml
+      - id: end-of-file-fixer
+      - id: trailing-whitespace
+      - id: mixed-line-ending
+
+  # --- Python formatting and linting (for Molecule tests/helpers) ---
+  - repo: https://github.com/psf/black
+    rev: 25.9.0
+    hooks:
+      - id: black
+        language_version: python3
+
+  - repo: https://github.com/PyCQA/flake8
+    rev: 7.3.0
+    hooks:
+      - id: flake8
+        additional_dependencies: [flake8-bugbear]
+
+  # --- Ansible linting ---
+  - repo: https://github.com/ansible/ansible-lint
+    rev: v25.9.1
+    hooks:
+      - id: ansible-lint
+        args: [--force-color]
+
+  # --- YAML style ---
+  - repo: https://github.com/adrienverge/yamllint
+    rev: v1.37.1
+    hooks:
+      - id: yamllint
+        args: ["-c", ".yamllint"]
