@@ -1,10 +1,10 @@
 site_name: My Docs| Sean Njela
 site_description: Professional docs implementation.
-site_url: https://sean-njela.github.io/docs/
+site_url: https://sean-njela.github.io/ansible-demo/
 site_author: Sean Njela
-repo_url: https://github.com/sean-njela/docs/
-repo_name: sean-njela/docs/
-edit_uri: edit/main/docs/
+repo_url: https://github.com/sean-njela/ansible-demo/
+repo_name: sean-njela/ansible-demo/
+edit_uri: edit/main/ansible-demo/
 copyright: Copyright &copy; 2025 Sean Njela - Personal Portfolio Project
 
 # Configuration

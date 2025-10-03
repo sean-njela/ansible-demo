@@ -12,7 +12,8 @@ exclude: >
     .*\.jpg|
     .*\.jpeg|
     .*\.gif|
-    .*\.svg
+    .*\.svg|
+    mkdocs.yml
   )$
 
 repos:
@@ -22,7 +23,7 @@ repos:
     hooks:
       - id: check-yaml
         # skip ansible files with custom tags
-        exclude: ^(inventory/|group_vars/|host_vars/|roles/|playbooks/).*
+        exclude: ^(inventory/|group_vars/|host_vars/|roles/|playbooks/|mkdocs.yml).*
       - id: check-json
       - id: check-toml
       - id: end-of-file-fixer
