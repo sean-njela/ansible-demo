@@ -1,0 +1,22 @@
+---
+services:
+    semaphore:
+        ports:
+            - 3333:3000
+        image: semaphoreui/semaphore:v2.16.18
+        environment:
+            SEMAPHORE_DB_DIALECT: sqlite
+            SEMAPHORE_ADMIN: admin
+            SEMAPHORE_ADMIN_PASSWORD: admin123
+            SEMAPHORE_ADMIN_NAME: admin
+            SEMAPHORE_ADMIN_EMAIL: admin@admin.com
+            SEMAPHORE_USE_REMOTE_RUNNER: "True"
+            SEMAPHORE_RUNNER_REGISTRATION_TOKEN: "cssImSnk2XDb62iuQknKpRUDxCGHrlVCQj9p45UiCKI="
+        volumes:
+            - semaphore_data:/var/lib/semaphore
+            - semaphore_config:/etc/semaphore
+            - semaphore_tmp:/tmp/semaphore
+volumes:
+    semaphore_data:
+    semaphore_config:
+    semaphore_tmp:

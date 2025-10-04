@@ -56,6 +56,10 @@ vars:
     sh: date '+%Y%m%d%H%M%S'
   DOCS_COMPOSE_FILE: docker-compose.mkdocs.yml
   MKDOCS_PORT: 0.0.0.0:8030
+  SEMAPHORE_COMPOSE_FILE: docker.compose.semaphore.yml
+  SEMAPHORE_PROJECT_NAME: semaphore
+  SEMAPHORE_URL: "http://127.0.0.1:3333"
+
 
 includes:
   common:
@@ -80,6 +84,8 @@ tasks:
 # ─── Environment Management ────────────────────────────────────────────────────
   dev:
     desc: "Provision and start local development environment"
+    cmds:
+      - docker compose -f {{.SEMAPHORE_COMPOSE_FILE}} -p {{.SEMAPHORE_PROJECT_NAME}} up -d
 
   prod:
     desc: "Provision and deploy to production"
@@ -89,12 +95,12 @@ tasks:
   info:
     desc: "URLs to visit"
     cmds:
-      - echo "Prometheus -> {{.PROM_URL}}"
-      - echo "Grafana -> {{.GRAF_URL}}"
-      - echo "App -> {{.APP_URL}}"
+      - echo "Semaphore -> {{.SEMAPHORE_URL}}"
 
   status:
     desc: "Check if everything is running"
+    cmds:
+      - docker ps --filter "label=com.docker.compose.project={{.SEMAPHORE_PROJECT_NAME}}"
 
   versions:
     desc: "List current deployed versions"
@@ -136,6 +142,7 @@ tasks:
     desc: "Cleanup development resources only"
     cmds:
       - docker compose -f {{.DOCS_COMPOSE_FILE}} down
+      - docker compose -f {{.SEMAPHORE_COMPOSE_FILE}} -p {{.SEMAPHORE_PROJECT_NAME}} down
 
   cleanup-prod:
     desc: "Cleanup production resources only"
