@@ -834,3 +834,18 @@ ansible-playbook -i inventory/hosts.ini playbooks/test.yml
 
 * Ansible doesn’t care if the target is a container or a VM — as long as a connection plugin (`docker` or `ssh`) works.
 * By **reusing your playbooks** against containers, you can validate logic quickly before applying to “real” VMs or servers.
+
+## Semaphore
+
+Semaphore allows us to use Ansible with a web UI. Not only that, but it is a Modern UI and powerful API for Ansible, Terraform/OpenTofu/Terragrunt, PowerShell and other DevOps tools.
+
+Run semaphore with:
+
+```sh
+task dev
+```
+
+Username: admin
+Password: admin123
+
+Some boilerplate playbooks can be found [Here](https://github.com/ChristianLempa/boilerplates/tree/main/ansible)
